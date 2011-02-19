@@ -9,4 +9,4 @@ To use, just add the gem to your Gemfile and restart your app:
 
     gem 'mongo-rails-instrumentation', '~>0.1'
 
-This gem's home is on github at https://github.com/freerange/mongo-rails-instrumentation, so please add comments, suggestions and improvements there.
+This gem's home is on github at https://github.com/tomafro/mongo-rails-instrumentation, so please add comments, suggestions and improvements there.
