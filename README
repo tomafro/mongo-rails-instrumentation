@@ -1,0 +1,12 @@
+Mongo Rails 3 Instrumentation
+=============================
+
+Records how long your rails app spends in Mongo, and outputs it to the log, i.e.:
+
+    Completed 200 OK in 1535ms (Views: 623.3ms | Mongo: 848.2ms)
+
+To use, just add the gem to your Gemfile and restart your app:
+
+    gem 'mongo-rails-instrumentation', '~>0.1'
+
+This gem's home is on github at https://github.com/freerange/mongo-rails-instrumentation, so please add comments, suggestions and improvements there.
