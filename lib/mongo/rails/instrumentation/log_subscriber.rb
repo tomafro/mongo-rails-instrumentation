@@ -1,20 +1,33 @@
 require 'mongo/rails/instrumentation'
 
 class Mongo::Rails::Instrumentation::LogSubscriber < ActiveSupport::LogSubscriber
+  PREFIX = self.class.name.freeze
+  COUNT_KEY = PREFIX + "#count".freeze
+  RUNTIME_KEY = PREFIX + "#runtime".freeze
+
   def self.runtime=(value)
-    Thread.current["mongo_mongo_runtime"] = value
+    Thread.current[RUNTIME_KEY] = value
   end
 
   def self.runtime
-    Thread.current["mongo_mongo_runtime"] ||= 0
+    Thread.current[RUNTIME_KEY] ||= 0
   end
 
-  def self.reset_runtime
-    rt, self.runtime = runtime, 0
+  def self.count=(value)
+    Thread.current[COUNT_KEY] = value
+  end
+
+  def self.count
+    Thread.current[COUNT_KEY] ||= 0
+  end
+
+  def self.reset
+    rt, self.runtime, self.count = runtime, 0, 0
     rt
   end
 
   def mongo(event)
     self.class.runtime += event.duration
+    self.class.count += 1
   end
 end

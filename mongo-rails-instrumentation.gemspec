@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Tom Ward"]
   s.email       = ["tom@popdog.net"]
   s.homepage    = "http://tomafro.net"
-  s.summary     = %q{Records time spent in mongo and adds to request logs}
-  s.description = %q{Records time spent in mongo and adds to request logs}
+  s.summary     = %q{Record time spent in Mongo and add to request logs}
+  s.description = %q{Record time spent in Mongo and add to request logs}
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

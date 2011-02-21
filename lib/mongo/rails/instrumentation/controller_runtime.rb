@@ -9,9 +9,9 @@ module Mongo::Rails::Instrumentation
     attr_internal :mongo_runtime
 
     def cleanup_view_runtime
-      mongo_rt_before_render = LogSubscriber.reset_runtime
+      mongo_rt_before_render = LogSubscriber.reset
       runtime = super
-      mongo_rt_after_render = LogSubscriber.reset_runtime
+      mongo_rt_after_render = LogSubscriber.reset
       self.mongo_runtime = mongo_rt_before_render + mongo_rt_after_render
       runtime - mongo_rt_after_render
     end
