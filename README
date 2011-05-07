@@ -7,6 +7,8 @@ Records how long your rails app spends in Mongo, and outputs it to the log, i.e.
 
 To use, just add the gem to your Gemfile and restart your app:
 
-    gem 'mongo-rails-instrumentation', '~>0.1'
+    gem 'mongo-rails-instrumentation', '~>0.2'
+
+It's been tested with rails 3.0, and should work with rails 3.1 too.
 
 This gem's home is on github at https://github.com/tomafro/mongo-rails-instrumentation, so please add comments, suggestions and improvements there.
