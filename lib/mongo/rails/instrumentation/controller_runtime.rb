@@ -8,6 +8,11 @@ module Mongo::Rails::Instrumentation
 
     attr_internal :mongo_runtime
 
+    def process_action(action, *args)
+      LogSubscriber.reset_runtime
+      super
+    end
+
     def cleanup_view_runtime
       mongo_rt_before_render = LogSubscriber.reset_runtime
       runtime = super
