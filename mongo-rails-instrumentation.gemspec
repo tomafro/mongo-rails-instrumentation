@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Tom Ward"]
   s.email       = ["tom@popdog.net"]
-  s.homepage    = "http://tomafro.net"
+  s.homepage    = "http://github.com/freerange/mongo-rails-instrumentation"
   s.summary     = %q{Records time spent in mongo and adds to request logs}
   s.description = %q{Records time spent in mongo and adds to request logs}
 
