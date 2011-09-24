@@ -19,12 +19,13 @@ module Mongo::Rails::Instrumentation
     def instrument(clazz, methods)
       clazz.module_eval do
         methods.each do |m|
-          class_eval %{def #{m}_with_instrumentation(*args, &block)
-            ActiveSupport::Notifications.instrumenter.instrument "mongo.mongo", :name => "#{m}" do
-              #{m}_without_instrumentation(*args, &block)
+          class_eval <<-CODE, __FILE__, __LINE__ + 1
+            def #{m}_with_instrumentation(*args, &block)
+              ActiveSupport::Notifications.instrumenter.instrument "mongo.mongo", :name => "#{m}" do
+                #{m}_without_instrumentation(*args, &block)
+              end
             end
-          end
-          }
+          CODE
 
           alias_method_chain m, :instrumentation
         end
