@@ -5,7 +5,7 @@ module Mongo::Rails::Instrumentation
     initializer "mongo.rails.instrumentation" do |app|
       instrument Mongo::Networking, [
         :send_message,
-        :send_message_with_safe_check,
+        :send_message_with_gle,
         :receive_message
       ]
 
