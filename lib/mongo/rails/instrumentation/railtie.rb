@@ -3,9 +3,9 @@ require 'mongo/rails/instrumentation'
 module Mongo::Rails::Instrumentation
   class Railtie < Rails::Railtie
     initializer "mongo.rails.instrumentation" do |app|
-      instrument Mongo::Connection, [
+      instrument Mongo::Networking, [
         :send_message,
-        :send_message_with_safe_check,
+        :send_message_with_gle,
         :receive_message
       ]
 
